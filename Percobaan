@@ -1,0 +1,201 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled2.ipynb",
+      "provenance": [],
+      "mount_file_id": "https://gist.github.com/Agnes-FD/13749c67122e48478f7621ebc844d465#file-untitled2-ipynb",
+      "authorship_tag": "ABX9TyOpZMLbOPzGOX7sdsqxhA5u",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Agnes-FD/Agnes-FD/blob/main/Percobaan\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mSCf3yEBVqlg",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "cd609278-0cf6-4cd2-f795-f5464cb03188"
+      },
+      "source": [
+        "from google.colab import drive\r\n",
+        "drive.mount ('/content/drive')"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "3-Phq0c8lcv4",
+        "outputId": "5f0a3f84-e6bc-461a-a9e8-f66dc8fc6d6d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Mounted at /content/drive\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GkptFGCahu_o",
+        "outputId": "59ac3804-8763-49cf-da6e-e4022bfd46a3"
+      },
+      "source": [
+        "cd /content/drive/MyDrive/KAGGLE_DATASET"
+      ],
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "/content/drive/MyDrive/KAGGLE_DATASET\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BJj8J5wPh6-M",
+        "outputId": "6f73346b-9eb7-40d1-ea82-dd41375bf55e"
+      },
+      "source": [
+        "ls"
+      ],
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "'~.kaggle'   kaggle.json   \u001b[0m\u001b[01;34mwith_mask\u001b[0m/   \u001b[01;34mwithout_mask\u001b[0m/\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "N9m9ISSxh7sd",
+        "outputId": "89c27b7a-409d-4530-f1cb-88b7d230677b"
+      },
+      "source": [
+        "!pip install PILLOW"
+      ],
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Requirement already satisfied: PILLOW in /usr/local/lib/python3.7/dist-packages (7.0.0)\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2qOVyAz_iAM0",
+        "outputId": "8c19c40d-1bfb-42b9-ed77-b0dbf737724f"
+      },
+      "source": [
+        "from PIL import Image\r\n",
+        "from imutils import paths\r\n",
+        "import numpy as np\r\n",
+        "import os\r\n",
+        "print(\"INFO Loading\")\r\n",
+        "Imagepaths = paths.list_images (\"KAGGLE_DATASET\")\r\n",
+        "Data = []\r\n",
+        "Label = []\r\n"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "INFO Loading\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wjJiT5spiuxs"
+      },
+      "source": [
+        "for imagepath in Imagepaths:\r\n",
+        "  Image = Image.open(imagepath)\r\n",
+        "  Image = np.array(Image.resize((64,64)))/255.0\r\n",
+        "  Data.append(Imagepaths)"
+      ],
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jlqIm4ktmZLs"
+      },
+      "source": [
+        "Label = Imagepath."
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
